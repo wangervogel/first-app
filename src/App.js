@@ -1,6 +1,11 @@
+import Todos from './Todos';
+
 function App() {
   return (
-    <h1>Hello, Worlds!</h1>
+    <div>
+      <h1>Todo App</h1>
+      <Todos />
+    </div>
   );
 }
 
