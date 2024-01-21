@@ -1,9 +1,12 @@
+
+import Header from './Header';
 import Todos from './Todos';
+
 
 function App() {
   return (
     <div>
-      <h1>Todo App</h1>
+      <Header />
       <Todos />
     </div>
   );
