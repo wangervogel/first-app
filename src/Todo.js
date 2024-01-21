@@ -1,8 +1,10 @@
-function Todo({ id, todo, onDelete }) {
+function Todo({ id, todo, onDelete, onToggle, completed }) {
     return (
-        <li>
-            {todo} <button onClick={() => onDelete(id)}>Delete</button>
-        </li>
+        <div style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+            <input type="checkbox" checked={completed} onChange={() => onToggle(id)} />
+            {todo}
+            <button onClick={() => onDelete(id)}>Delete</button>
+        </div>
     );
 }
 
