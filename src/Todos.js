@@ -5,14 +5,21 @@ let id = 1;
 
 function Todos() {
     const [inputValue, setInputValue] = useState('');
-    const [todos, setTodos] = useState([]); 
+    const [todos, setTodos] = useState([]);
+    
+    //Todoリストの削除
+    const deleteTodo = (id) => {
+        setTodos(todos.filter(todo => todo.id !== id));
+    };
+
+
     const renderedTodos = todos.map((todo) => {
-        return <Todo key={todo.id} todo={todo.text} />
+        return <Todo key={todo.id} id={todo.id} todo={todo.text} onDelete={deleteTodo} />
     });
+    
     const handleSubmit = () => {
-        todos.push(
-            setTodos([...todos, { id: id++, text: inputValue }])
-        );
+        setTodos([...todos, { id: id++, text: inputValue }]);
+        setInputValue('');
     };
     
     return (
