@@ -1,6 +1,6 @@
 
 import Header from './Header';
-import Todos from './Todos';
+import Todos from './TodoList';
 
 
 function App() {

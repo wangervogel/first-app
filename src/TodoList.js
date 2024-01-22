@@ -1,9 +1,8 @@
 import Todo from './Todo';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-let id = 1;
-
-function Todos() {
+function TodoList() {
     const [inputValue, setInputValue] = useState('');
     const [todos, setTodos] = useState([]);
     
@@ -35,7 +34,9 @@ function Todos() {
     });
     
     const handleSubmit = () => {
-        setTodos([...todos, { id: id++, text: inputValue, completed: false }]);
+        // uuidv4で一意のIDを生成
+        const uniqueId = uuidv4();
+        setTodos([...todos, { id: uniqueId, text: inputValue, completed: false }]);
         setInputValue(''); //Todoリストの追加後、フォームを空にする
     };
     
@@ -50,4 +51,4 @@ function Todos() {
     );
 }
 
-export default Todos;
+export default TodoList;
