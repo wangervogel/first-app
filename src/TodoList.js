@@ -1,9 +1,8 @@
 import Todo from './Todo';
 import { useState } from 'react';
+import { v4 as uudiv4 } from 'uuid';
 
-let id = 1;
-
-function Todos() {
+function TodoList() {
     const [inputValue, setInputValue] = useState('');
     const [todos, setTodos] = useState([]);
     
@@ -12,13 +11,15 @@ function Todos() {
         setTodos(todos.filter(todo => todo.id !== id));
     };
 
-
+    // Todoからリストを作成
     const renderedTodos = todos.map((todo) => {
         return <Todo key={todo.id} id={todo.id} todo={todo.text} onDelete={deleteTodo} />
     });
     
     const handleSubmit = () => {
-        setTodos([...todos, { id: id++, text: inputValue }]);
+        // uuidを使って一意のIDを生成
+        const uniqueId = uudiv4();
+        setTodos([...todos, { id: uniqueId, text: inputValue }]);
         setInputValue('');
     };
     
@@ -33,4 +34,4 @@ function Todos() {
     );
 }
 
-export default Todos;
+export default TodoList;

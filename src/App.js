@@ -1,13 +1,13 @@
 
 import Header from './Header';
-import Todos from './Todos';
+import TodoList from './TodoList';
 
 
 function App() {
   return (
     <div>
       <Header />
-      <Todos />
+      <TodoList />
     </div>
   );
 }
